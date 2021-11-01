@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import time
 import json
+from datetime import datetime, timedelta
 from decouple import config
 API_KEY = config("api_key")
 #getting data option 1
@@ -16,10 +17,9 @@ request1 = youtube.search().list(
 )
 
 response1 = request1.execute()
-#testing out the channel resource
-response2 = youtube.channels().list(
-    id="UCkUq-s6z57uJFUFBvZIVTyg",
-    part="contentDetails"
+#testing out the comments resource
+response2 = youtube.comments().list(
+    id="l0U7SxXHkPY",
+    part="snippet"
 ).execute
-
-print(response2)
+#get youtuber upload times
